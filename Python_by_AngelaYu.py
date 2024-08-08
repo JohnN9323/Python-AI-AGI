@@ -1390,5 +1390,186 @@ random.seed()
 
 "# day 9:  DICTIONARIES AND NESTING"
 
+# # mentioning the multiple items in a dictionary
+# programming_dictionary = {
+#     "Bug": "An error in a programm that prevents the programm from running as expected.",
+#     "Function": "A piece of code that you can easily call over and over again.",
+#     "loop": "The action of doing something over and over again.",
+#     123:"Hello John "
+# }
 
+# # retriving an item from the dictionary
+# # items in the dictonary are identify by their keys
+# # fetching an item from the dictionary a common mistake is spelling the key name icorrectly
+# # always provide the key data type here the data type is string  
+
+# print (programming_dictionary["Bug"])
+# print (programming_dictionary[123])
+
+# # adding the items to dictionary later on
+
+# programming_dictionary["Function1"] ="function1 for backtracking"
+# # now the dictionary will have four items including the function1
+# print(programming_dictionary)
+
+# # editing an item in the dictionary
+
+# programming_dictionary["Function1"]="A moth in your computer."
+
+# print(programming_dictionary)
+
+# # creating empty dictionary
+
+# empty_dictionary ={}
+
+# # later you can add the items to dictionary using this method
+
+# empty_dictionary ["Function","Loop","Bug"] = "function","loop","bug"
+
+# # wipe an exsisting dictonary
+
+# empty = {}
+
+# programming_dictionary = {}
+
+# print(programming_dictionary)
+
+# programming_dictionary = empty_dictionary
+
+# print(programming_dictionary)
+
+# # How you loop through dictionary
+
+# # below code will not print the content of the items it prints only keys
+# for key in programming_dictionary:
+#     # keys based on this line
+#     print(key)
+#     # values base on this line
+#     print(programming_dictionary[key])
+
+
+"Nesting Lists and Dictionaries"
+
+# capitals = {
+#     "France":"Paris",
+#     "India": "Delhi",
+#     "Germany": "Berlin"
+# }
+
+# # Nested list in the dictionaries
+
+# # with listing and nesting for each key has assigned with more than one values
+# travel_log = {
+    
+#     "country": ["France","India","Germany"],
+#     "city":["Paris","Delhi","Berlin"],
+# }
+
+# # print India from country
+# print(travel_log ["country"][1])
+
+# # looping through keys one by one
+# for key in travel_log:
+#     for value in travel_log[key]:
+#      print(f"{key}:{value}")
+
+# # printing list from the inside list
+
+# list = ["A","B",["C","D"]]
+
+# print(list[2][1])
+
+# Nesting dictionary with in a  dictionary itself
+
+# travel_log = {
+#     "France":{
+#         "cities_visited":["Paris","Lille","Dijon"],
+#         "total_visits": 10
+#     },
+#     "Germany":{
+#         "cities_visited": ["Hamburg","Berlin","sturtgart"],
+#         "total_visits": 5
+#     },
+# }
+
+# # printing all the info in the germany
+# print(travel_log["Germany"])
+
+# # looping through all the countries and cities visited in the country
+# for country in travel_log:
+#   print("Country_visited:",country)
+#   print ("cities_visited:")
+#   for city in travel_log[country]["cities_visited"]:
+#     print(city)
+
+# print the first city visited in the country
+
+# print("First city visited in France:", travel_log["France"]["cities_visited"][0])
+# print("Total visits:", travel_log["France"]["total_visits"])
+
+# # Using function
+
+# def print_country_info(country):
+#   if country in travel_log:
+#     print(f"Country:{country}")
+#     print(f"Cities visited:")
+#     for city in travel_log[country]["cities_visited"]:
+#       print("-",city)
+#     print("Total visits:", travel_log[country]["total_visits"])
+#   else:
+#     print(f"No data available for {country}")
+
+# print_country_info("Germany")
+
+
+"Auction Progamming instruction"
+
+# import os
+
+# def clear():
+#   os.system('cls' if os.name == 'nt' else 'clear')
+
+# print("Hello Bidder, welcome to AuctionHub!")
+
+# def find_highest_bidder(bidding_dictionary):
+#     # if the data in the dictionary is in this formate key:value
+#     # hold of highest bid amount
+
+#     highest_bid=0
+#     winner=""
+#     for bidder in bidding_dictionary:
+#         bid_amount= bidding_dictionary[bidder]
+#         if bid_amount > highest_bid:
+#             highest_bid = bid_amount
+#             winner = bidder
+#     print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+# bids={}  #if the bids dictionary inside the loop we loose the previous data we need the previous data for comparision
+# continue_bidding = True
+# while continue_bidding:
+#     name= input("what is your name?:")
+#     price=int(input("what is your bid?: $"))
+#     bids[name]=price
+#     should_continue=input("are they any other bidders? Type 'yes' or 'no' \n").lower()
+    
+#     if should_continue =="yes":
+#        clear() 
+#     #  you can use here clear() or use this simple code "print("\n"*20)"
+    
+#     elif should_continue =="no":
+#          continue_bidding = False
+#          find_highest_bidder(bids)
+
+
+
+
+"using max function in python"
+# # simply we can use max function in python to find the max of bid in the dictionary
+
+# stats = {"a":11, "b":30, "c": 25}
+
+# inverse = [(value,key) for key,value in stats.items()]
+# print(max(inverse))
+
+# print(max(stats, key=stats.get))
 
