@@ -1574,6 +1574,3 @@ random.seed()
 # print(max(stats, key=stats.get))
 
 
-print ("git first commit from main")
-
-print ("git second commit from main")
