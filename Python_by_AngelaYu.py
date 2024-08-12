@@ -1574,3 +1574,224 @@ random.seed()
 # print(max(stats, key=stats.get))
 
 
+"Day 10 : FUNCTIONS WITH INPUTS"
+
+"TITLE FUNCTION"
+
+"Either input in lower case or upper case and output will change into tilte case "
+"john, JOHN, JoHn all these going to end up like this John"
+
+# def format_name(first_name,last_name):
+ 
+#     formatted_first = first_name.title()
+#     formatted_last = last_name.title()
+#     return f"{formatted_first} {formatted_last}"
+
+# # Get input from user
+# first_name = input('Enter your first name:')
+# last_name = input('Enter your last name:')
+
+# # call the function
+
+# formatted_name = format_name(first_name,last_name)
+# print("Title Cased Name:", formatted_name)
+
+"taking two function and using first function output as second finction input"
+
+# def function_1(text):
+#     return text + text
+
+# def function_2(text):
+#     return text.title()
+
+# output = function_2(function_1("hello"))
+# print(output)
+
+"More than one return fuction in the same statement"
+
+# def format_name(first_name,last_name):
+    
+#     if first_name =="" or last_name=="":
+#         return "you didn't provide valid input"
+    
+#     formatted_first = first_name.title()
+#     formatted_last = last_name.title()
+#     return f"{formatted_first} {formatted_last}"
+
+# print(format_name(input("What is your first_name?"),input("what is your last_name?")))
+
+"DOCSTRINGS"
+"""This is Docstring"""
+
+"how to use the reference function example"
+
+# def add(n1,n2):
+#     return n1+n2
+
+# my_facvourite_operation = add
+
+# print(my_facvourite_operation(n1 = 2,n2=5))
+
+ 
+"CALCULATOR"
+
+# # Creat functions for each operations
+# def add(n1,n2):
+#     return n1+n2
+    
+# def subtraction(n1,n2):
+#     return n1-n2
+
+# def multiplication(n1,n2):
+#     return n1*n2
+
+# def division(n1,n2):
+#     return n1/n2
+
+# # store the function in dictionary
+
+# operations ={
+#     "+":add,
+#     "-":subtraction,
+#     "*":multiplication,
+#     "/":division,
+# }
+# # use dictionary to performe operations
+
+# # print(operations["*"](4,8))
+
+# # using recurission to continue if they user choice is 'n' 
+# def calculator():
+#     num1 = float(input("what is your first number?:"))
+#     should_accumlate = True
+#     while should_accumlate:
+
+#         for symbol in operations:
+#             print(symbol)
+#         operations_symbol = input("pick an operation:")
+
+#         num2 = float(input("what is your second number?:"))
+#         answer =operations[operations_symbol](num1,num2)
+#         print(f"{num1} {operations_symbol} {num2} = {answer}")
+
+#         choice = input(f"Type 'y' to continue with {answer}, or type 'n' to start a new calulation:")
+
+#         if choice =="y":
+#             num1 = answer
+#         elif choice == "n":
+#             should_accumlate = False
+#             print("\n"*20)
+#         # here you can use indent while loop inside another while loop for you can use recurrssion 
+#             calculator()
+
+# calculator()
+
+"Blackjack Program/21"  
+
+# """Built in function in PYTHON:
+# https://docs.python.org/3/library/functions.html#sum """
+
+# import random
+
+# def deal_card():
+#     """Return the random card form the deck"""
+#     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+#     card= random.choice(cards)
+#     return card
+
+# """use emoji use shortcut keys: windows + .  mac: ctrl + command +spacebar"""
+
+# def compare(u_score, c_score):
+#     if u_score == c_score:
+#         return "Draw 😊"   
+#     elif c_score ==0:
+#         return " Lose, opponent has Blackjack 😱"
+#     elif u_score == 0:
+#         return "win with a Blackjack 😎"
+#     elif u_score >21:
+#         return "you went over. You lose🫡"
+#     elif c_score>21:
+#         return "Opponent went over. You win 😁"
+#     elif u_score > c_score:
+#         return "You win 😀"
+#     else:
+#         return "you loose😭"
+
+# def play_game():
+#     user_cards=[]
+#     computer_cards=[]
+#     computer_score =-1
+#     user_score=-1
+#     is_game_over = False
+
+
+#     """ LIST METHOD:Here are some common list methonds:
+#     https://developers.google.com/edu/python/lists#list-methods """ 
+
+#     def calculate_score(cards):
+
+#         if sum(cards) == 21 and len(cards)==2:
+#             return 0
+        
+#         if 11 in cards and sum(cards)>21:
+#             cards.remove(11)
+#             cards.append(1)
+
+#         return sum(cards)
+
+#     for _ in range(2): 
+#         """ this will make the loop run twice """
+#         new_card = deal_card()
+
+#         """when to use .append(0) only if you don't extent the exsisting list or "+=" 
+#         user_card.extend  or "+=" will through Trackback error you can't assign a single item to a list  if you use 
+
+#         if you want to use .extend or "+=" this will not pop an error
+
+#         new_card = [deal_card(),deal_card1()]
+#         user_cards.extend(new_card)
+#         """ 
+#         user_cards.append(new_card)   
+#         """ or you can use directly : user_cards.append(deal_car()) """
+#         computer_cards.append(deal_card())
+
+
+#     """loop it till the game is over"""
+#     while not is_game_over:
+
+#         """call the funciton and assign to some variable"""
+#         user_score = calculate_score(user_cards)
+#         computer_score = calculate_score(computer_cards)
+#         print(f"Your cards:{user_cards},current score:{user_score}")
+#         print(f"computer first card:{computer_cards[0]}")
+        
+
+#         if user_score == 0 or computer_score == 0 or user_score >21:
+#             is_game_over = True 
+
+#         else:
+#             user_should_deal = input("Type 'y' to get another card, type 'n' to pass:")
+            
+#             if user_should_deal =="y":
+#                 user_cards.append(deal_card())
+#                 user_score = calculate_score(user_cards)
+#             else:
+#                 is_game_over = True
+
+#     """if you use the below while loop you have define a empty variable 'computer_score= -1' outside the first wile loop"""
+#     while computer_score !=0 and computer_score <17:
+#         computer_cards.append(deal_card())
+#         computer_score = calculate_score(computer_cards)
+
+
+#     print(f"Your final hand:{user_cards},final score:{user_score}")
+#     print(f"Computer final hand:{computer_cards},final score:{computer_score}")
+#     print(compare(u_score =user_score, c_score = computer_score))
+
+
+# """to ask the use to keep on playing a game of Blackjack in the beginning"""
+
+# while input("Do you want to play a game of Balckjack? Type 'y' or 'n':") == "y":
+#     print("\n"*20)
+#     play_game()
+
