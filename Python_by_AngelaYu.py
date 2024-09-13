@@ -51,6 +51,8 @@ For multi line comments
 # length = len(name)
 # print(length)
 
+"""NOTE: CONCATENATION STRING"""
+
 # 1. Create a greeting  for your program.
 
 # print("welcome to the band name Shalom in Christ")
@@ -87,7 +89,7 @@ For multi line comments
 
 # two_digit_number = input("Type a two digit number: ")
 
-"using MAP"
+"NOTE:USING MAP"
 
 # numbers = [1,2,3,4]
 # #using map() to square each number
@@ -1628,9 +1630,9 @@ random.seed()
 # def add(n1,n2):
 #     return n1+n2
 
-# my_facvourite_operation = add
+# my_favourite_operation = add
 
-# print(my_facvourite_operation(n1 = 2,n2=5))
+# print(my_favourite_operation(n1 = 2,n2=5))
 
  
 "CALCULATOR"
@@ -1794,4 +1796,376 @@ random.seed()
 # while input("Do you want to play a game of Balckjack? Type 'y' or 'n':") == "y":
 #     print("\n"*20)
 #     play_game()
+
+
+"Namespaces and Scope : Local vs. Global Scope"
+
+# """Global variable"""
+# player_name = "John"
+# player_num = 7
+
+# def game():
+
+#     def games_won():
+#         """Local variable"""
+#         games = 2  
+#         """Declare that we are using the global variable"""
+#         global player_num , player_name
+#         # player_last_name = "Logan"
+#         player_name += " Logan"
+#         player_num +=12 
+#         print(f"{games} games won by{player_name} has jersey no:{player_num}")
+#     games_won()
+
+# game()
+
+# print(player_num, player_name)
+
+# """Correct way to write the above code"""
+
+"""Important notes:
+Using global variables like this is generally discouraged in Python, as it can make code harder to understand and maintain.
+A better practice would be to pass player_num as an argument to game() and return the modified value.
+If you're working with immutable types like strings, you can't modify them in-place. You would need to reassign the variable,
+ like player_num = player_num + "suffix".
+"""
+# def game(player_num):
+#     def games_won(num):
+#         games = 2   
+#         num += 7
+#         print(f"{games} games won by {num}")
+#         return num
+#     return games_won(player_num)
+
+# player_num = 7
+# player_num = game(player_num)
+# print(player_num)
+
+"""DOES PYTHON HAVE BLOCK SCOPE"""
+
+"""Python is bit different from other programming languages in that it does not have block scope
+   This means that variables created nested in other blocks of code e.g. for loops, if statements, while loops etc.
+   don't get local scope. They are given function scope if they are within a function or global scope if they are not."""
+
+
+# game_level = 10
+# players = ["John", "Logan", "Luke"]
+
+# def find_best_player():
+#     """you need to call the best_player as empty before assigning its value """
+#     best_player = ""
+#     if game_level < 5:
+#         best_player = players[0] 
+    
+#     print(best_player)
+
+# find_best_player()
+
+
+"HOW TO MODIFY VARIABLES WITH GLOBAL SCOPE"
+
+"""Never modify the global varible within function or name the global variable and local variable with identical names"""
+
+"""example for using global variable"""
+
+# name = "John"
+# def name_correction():
+#     global name
+#     name = "John Logan"
+# name_correction()  
+# print(name)
+
+"""what if you want a function that changes the name without calling global 
+   you can do that using return"""
+# name = "John"
+# def name_correction(full_name):
+#     return full_name + " "+ "Logan" 
+# name = name_correction(name)  
+# print(name)
+
+
+"""Python Constants and Global Scope"""
+
+"""Global Constants: you will define in all caps and never planning to modify them"""
+# PI =3.14
+# def my_func():
+#     print(PI)
+# my_func()
+
+
+"""The Number Guessing Game"""
+
+# from random import randint
+
+# # global variable for turns
+# EASY_LEVEL_TURNS = 10
+# HARD_LEVEL_TURNS = 5
+
+# Function to check users' guess against actual answer
+# Track the number of turns and reduce by 1 if they get it wrong
+"""how can you reduce the turn without creating and  passing the global variable in the functionality and modify it you can
+   passing the turn to function"""
+
+# def check_answer(user_guess,actual_answer,turns):
+#     if user_guess > actual_answer:
+#         print( "Too high.")
+#         return turns -1
+#     elif user_guess < actual_answer:
+#         print("Too Low.")
+#         return turns -1
+#     else:
+#         print(f"You got it! The answer was {actual_answer}")
+
+# # Function to set difficulty
+# def set_difficulty():
+#     level =input("Choose a dificulty. Type 'easy' or 'hard':")
+#     if level == "easy":
+#     #     global turns
+#     #     turns = EASY_LEVEL_TURNS
+#     # else:
+#     #     turns = HARD_LEVEL_TURNS
+#     # or
+      
+#         return EASY_LEVEL_TURNS
+#     else:
+#         return HARD_LEVEL_TURNS
+
+# def game():
+#     # choosing a random number between 1 to 100
+#     print("Welcome to the Number Guessing Game!")
+#     print("I'm thinking of a number between 1 to 100.")
+#     answer = randint(1,100)
+#     print(answer)
+
+#     # turns = 0
+#     turns = set_difficulty()
+#     print(f"You have {turns} attempts remaning to guess the number.")
+
+#     # Repeat the guessing functionality if they get it wrong
+#     guess=0
+#     while guess != answer:
+#         # Let the user guess a number
+#         guess = int(input("Make a guess:"))
+
+#         # call the function check answer
+#         turns =check_answer(guess, answer,turns)
+#         print(f"turns remaning:{turns}")
+        
+#         #to stop the truns loop to negative
+#         if turns == 0:
+#             print("You've run out of guess, you lose.")
+#             return
+#         """still you are not able to stop the game even if the turn = 0 
+#         he solution here is we have our game in a funciton you can just use return to stop the game"""
+
+# game()
+
+"DEBUGGING: How to find and fix errors in your code"
+
+# def my_function():
+#     for i in range(1,20+1):
+#         if i ==20:
+#             print("you got it")
+
+# my_function()
+
+"Reproduce the bug"
+
+"List index out of the bound"
+
+# from random import randint
+
+# dice_images = ["😭","😀","😁","😍","😎","🫡"]
+# dice_num = randint(0,5)
+# print(dice_images[dice_num])
+
+"use TRY AND EXCEPT BLOCK for 'value error'"
+
+# import os
+
+# def clear():
+#    os.system('cls' if os.name == 'nt' else 'clear')
+
+# ask_age = True
+# while ask_age:
+
+#     try:
+#        age =int(input("How old are your?"))
+#        if age>18:
+#           print(f"You can drive at age{age}")
+#           ask_age = False
+#        else:
+#           print(f"You are not old enough to drive at age {age}")
+#           ask_age = False
+#     except ValueError:
+#        print("Invalid input: Please enter your age as a number")
+#        input("Press Enter to try again")
+#        clear()
+   
+
+"example: the error system can't catch"
+
+# try:
+#    age = int(input("How old are your?"))
+# except ValueError:
+#    print("invalid input")
+#    age = int(input("How old are your?"))
+
+# if age >18:
+#    print("You can drive at age {age}")
+
+# # output: "How old are your?21
+# # You can drive at age {age}"
+#    print(f"You can drive at age {age}")
+
+"Squash bugs with a print() Statement"
+
+# word_per_page =0
+# pages = int(input("Number of pages: "))
+# word_per_page =(int(input("Number of words per page:")))
+# total_words = pages * word_per_page
+# print(total_words)
+
+"how to use debugger and break out in a code"
+
+"""lear how to use debugger in vscode, pycharm
+
+    step over, step into, step into my code(ignore library function)"""
+
+# import random
+
+
+# def mutate(a_list):
+#     b_list =[]
+#     new_item =0
+#     for item in a_list:
+#         new_item = item*2
+#         new_item += random.randint(1,3)
+#         new_item = new_item + item
+#         b_list.append(new_item)
+#     print(b_list)
+
+# mutate([1,2,3,5,8,13])
+
+"""HIGHER OR LOWER GAME PROJECT"""
+
+# import random
+# from turtle import clear
+
+# data =[
+#    {
+#       'name': 'Instagram',
+#       'follower_count' : 364,
+#       'description': 'Social media platform',
+#       'country': 'United States'
+
+#     },
+#    {
+#       'name': 'Cristiano Ronaldo',
+#       'follower_count' : 215,
+#       'description': 'Footballer',
+#       'country': 'Portugal'
+       
+#    },
+#    {
+#       'name': 'Ariana Grade',
+#       'follower_count' : 187,
+#       'description': 'Musician and actress',
+#       'country': 'United States'
+       
+#    },
+#    {
+#       'name': 'Dwayen Johnson',
+#       'follower_count' : 177,
+#       'description': 'Actor and professional wrestler',
+#       'country': 'United States'
+       
+#    }]
+
+
+
+# # from the account data into printable formate.
+# def format_data (account):
+#     """Takes the account data and returns the pritable format."""
+
+#     account_name = account["name"]
+#     account_desc = account["description"]
+#     account_country = account["country"]
+#     return f"{account_name},a {account_desc},from {account_country}"
+
+
+# def check_answer(user_guess, a_follwers, b_followers):
+#     """Take a user's guess and the followers count and returns if the user is right"""
+    
+#     if a_follwers > b_followers:
+#       #   if guess == 'a':
+#       #       return True
+#       #   else:
+#       #       return False
+#       #   or
+#         return guess == "a"
+#     else:
+#         return guess == "b"
+
+# score = 0  
+# # Making account at position B become the next account at position A.
+# account_b = random.choice(data)
+# # Make the game repeatable
+# game_should_continue = True
+# while game_should_continue:
+
+#    # Generate the random account from the game data
+#    # Making account at position B become the next account at position A.
+#    """In our second guess the account b from first guess should become account a and account b should continued to be random pick
+#       so we mentioned account_a outside the look and modified it inside the loop for futher guess"""
+   
+#    account_a = account_b
+#    account_b = random.choice(data)
+
+#    if account_a == account_b:
+#       account_b = random.choice(data)
+
+#    # you are going to call the description
+#    print(f"Compare A:{format_data(account_a)}.")
+#    print("VS")
+#    print(f"Against B:{format_data(account_b)}")
+
+#    # ask user for a guess.
+#    print(f"Guess who has more followers in Social media?")
+#    guess = input(f"Type 'A' for {account_a["name"]} and 'B' for {account_b["name"]} :").lower()
+
+#    # clear the screen
+#    print("\n" *20)
+   
+#    # check if the user is correct
+#    # -Get follower count of each account
+#    a_followers_count = account_a["follower_count"]
+#    b_followers_count = account_b["follower_count"]
+
+#    is_correct = check_answer(guess,a_followers_count,b_followers_count)
+
+#    # Give user feedback on their guess.
+#    # score keeping.
+  
+#    if is_correct:
+#       score += 1
+#       print(f"You are right! Current score {score}")
+      
+#    else:
+#       game_should_continue = False
+#       print(f"Sorry, that's wrong. Final score: {score}")
+      
+"COFFEE MACHINE PROJECT"
+
+# print
+# what would you like? (espresso/latte/cappuccino):
+# Print report
+
+# Check resource sufficient?
+
+
+      
+      
+
+
 
