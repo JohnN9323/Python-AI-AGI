@@ -1,2 +1,0 @@
-# Python-AI-AGI
-Learning
