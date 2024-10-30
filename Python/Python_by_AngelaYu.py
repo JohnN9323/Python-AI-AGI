@@ -2256,3 +2256,116 @@ while is_on:
        if is_resource_sufficient(drink["ingredients"]):
           payment= process_coins()
           is_transaction_successfull(payment, drink["cost"])
+
+
+""" NOTE : Object Oriented Programming(OOP) OR PROCEDURAL PROGRAMMING"""
+# We set up procedural or function that do particular things and one procedural leads to another procedural 
+
+""" How to Use OOP """
+# the object has are attributes and are model by variables
+# the object does are methods: are model by functions
+
+# example: waiter in a resturent
+# attributes: has : 
+# is_holding_plate = True
+# tables_responsible =[4,5,6]
+# methods: does:
+# def take_order(table, order):
+# take order to chef
+# deef take_payment(amount):
+# add money to restaurant 
+
+"""NOTE : essentially a object is combination of peace of data and some fucntionality all to gether in the same thing
+          also we have multiple objects of same types the object waiter is called CLASS and the same types of that class
+          are called OBJECT
+
+        Object      Class
+          car  = CarBlueprint()
+
+        car is the object and created from this CarBlueprint() class
+
+        to practice the object created from the class we are going to use the library "TURTEL GRAPHICS"
+"""
+
+"""Step1 create the object"""
+# TURTEL GRAPHICS LIBRARY
+
+# import turtle 
+
+# hold of Turtle() class in turtle module
+# and save this into a actual object
+
+# timmy=turtle.Turtle()
+
+# we can simplfy this above code
+# from the turtle module import Turtle class
+# this is how we construct our new object
+
+# from turtle import Turtle
+
+# timmy = Turtle()
+# print(timmy)
+
+# output : <turtle.Turtle object at 0x000001D38ADC08F0>
+# new turtle model from the turtle object saved at this location in this computer's memory
+
+"""Step2: what we do with this created object"""
+
+# for car object to get the attribute we use like this  car.speed (indentify the object and gets the speed attributes)
+
+# from turtle import Turtle, Screen
+
+# timmy = Turtle()
+# print(timmy)
+# # the is the class where the turtle is going to show up
+# # using my_screen object we can tab into screen porperties
+# my_screen = Screen()
+# print(my_screen.canvheight)
+
+"""Step3: METHOD : a function that tied to an objec so it is called method.
+                   in addtion to the object has it also holds data"""
+
+# timmy.shape("turtle")
+# timmy.color("red","green")
+# timmy.circle(150)
+# my_screen.exitonclick()
+
+""" to know more about Turtle library : https://docs.python.org/3/library/turtle.html"""
+
+
+""" NOTE : How to add Python Packages and use PyPi
+           PyPi: https://pypi.org/
+           look for preety table package library
+"""
+
+""" executing the below code using numpy package in vs code and create a virtual envinorment and using runner extension to execute the numpy code """
+
+# # to execute the runner extention in vs code you need to paste the path here 
+
+# C:\Users\john1\OneDrive\Code\Github_Repositories\Python-AI-AGI\Python\myenv\Scripts\python.exe
+
+# import numpy as np
+
+# # create a 2D array
+# my_array = np.array([[1,2,3],[4,5,6],[7,8,9]])
+# print (my_array)
+
+# print(my_array.shape)
+
+# print(my_array.dtype)
+
+# result = my_array*2
+# print(result)
+
+# mean = np.mean(my_array)
+# print(mean)
+
+# C:\Users\john1\OneDrive\Code\Github_Repositories\Python-AI-AGI\Python\myenv\Scripts\python.exe
+# import numpy as np
+# import matplotlib.pyplot as plt
+ 
+# x = np.linspace(0,2*np.pi,100)
+# y = np.sin(x)
+
+# plt.plot(x,y)
+# plt.show() 
