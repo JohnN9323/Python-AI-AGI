@@ -236,13 +236,12 @@ For multi line comments
 #     print("Sorry, you can't ride the rollercoaster for now")
 
 "# comparison operators"
-
-# > Greater than
-# < lesser than
-# >= Greater than or equal to
-# <= lesser than or equal to
-# == equal to
-# != not equal to
+"""> Greater than
+< lesser than
+>= Greater than or equal to
+<= lesser than or equal to
+== equal to
+!= not equal to """
 
 # remember that while you are using "=" one equal sign you are assigning the values to variables
 
@@ -1598,7 +1597,7 @@ random.seed()
 # formatted_name = format_name(first_name,last_name)
 # print("Title Cased Name:", formatted_name)
 
-"taking two function and using first function output as second finction input"
+"taking two function and using first function output as second function input"
 
 # def function_1(text):
 #     return text + text
@@ -2157,123 +2156,142 @@ If you're working with immutable types like strings, you can't modify them in-pl
       
 "NOTE PROJECT: COFFEE MACHINE PROJECT"
 
-# print
-# what would you like? (espresso/latte/cappuccino):
-# Print report
+# # print
+# # what would you like? (espresso/latte/cappuccino):
+# # Print report
 
-# Check resource sufficient?
+# # Check resource sufficient?
 
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "cappuccino": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
+# MENU = {
+#     "espresso": {
+#         "ingredients": {
+#             "water": 50,
+#             "coffee": 18,
+#         },
+#         "cost": 1.5,
+#     },
+#     "latte": {
+#         "ingredients": {
+#             "water": 200,
+#             "milk": 150,
+#             "coffee": 24,
+#         },
+#         "cost": 2.5,
+#     },
+#     "cappuccino": {
+#         "ingredients": {
+#             "water": 250,
+#             "milk": 100,
+#             "coffee": 24,
+#         },
+#         "cost": 3.0,
+#     }
+# }
 
-profit = 0
+# profit = 0
 
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
-}
+# resources = {
+#     "water": 300,
+#     "milk": 200,
+#     "coffee": 100,
+# }
 
-# step1: we are trying the build self functionality that is self contain which will compare with ingredient vs choice of the drinks
-# step2: we are going to loop through order ingrediensts item and compare it with resources library items
+# # step1: we are trying the build self functionality that is self contain which will compare with ingredient vs choice of the drinks
+# # step2: we are going to loop through order ingrediensts item and compare it with resources library items
 
-def is_resource_sufficient(order_ingredients):
-    """Return True when order can be made, False if ingredients are insufficients"""
-    for item in order_ingredients:
-        if order_ingredients[item] >= resources[item]:
-            print(f"Sorry ther is not enough {item}.")
-            return False
-    return True
+# def is_resource_sufficient(order_ingredients):
+#     """Return True when order can be made, False if ingredients are insufficients"""
+#     for item in order_ingredients:
+#         if order_ingredients[item] >= resources[item]:
+#             print(f"Sorry ther is not enough {item}.")
+#             return False
+#     return True
 
-# this is function for choice of a coin
-# every subsequent ones will be added other than the first total which creates a variable and sets its value
-def process_coins():
-    """Returns the total calculated from coins inserted."""
-    print("Please insert coins.")
-    total = int(input("how many quarters?:"))*0.25
-    total += int(input("how many dimes?:"))*0.1
-    total += int(input("how many nickles?:"))*0.05
-    total += int(input("how many pennies?:"))*0.01
-    return total
+# # this is function for choice of a coin
+# # every subsequent ones will be added other than the first total which creates a variable and sets its value
+# def process_coins():
+#     """Returns the total calculated from coins inserted."""
+#     print("Please insert coins.")
+#     total = int(input("how many quarters?:"))*0.25
+#     total += int(input("how many dimes?:"))*0.1
+#     total += int(input("how many nickles?:"))*0.05
+#     total += int(input("how many pennies?:"))*0.01
+#     return total
 
-# checking transaction successful
-# add the collect money to profit
-# if user has inserted too much monry. the machine should offer change and change will be rounded to 2 decimal places.
+# # checking transaction successful
+# # add the collect money to profit
+# # if user has inserted too much monry. the machine should offer change and change will be rounded to 2 decimal places.
 
-def is_transaction_successfull(money_received, drink_cost):
-    """Return True when the payment is accepted, or False if money is insufficient."""
-    if money_received >= drink_cost:
-        change = round(money_received - drink_cost, 2)
-        print(f"Here is ${change} in change.")
+# def is_transaction_successfull(money_received, drink_cost):
+#     """Return True when the payment is accepted, or False if money is insufficient."""
+#     if money_received >= drink_cost:
+#         change = round(money_received - drink_cost, 2)
+#         print(f"Here is ${change} in change.")
 
-        global profit
-        profit += drink_cost
-        return True
-    else:
-        print("Sorry that's not enough money. Money refunded.")
-        return False
-
-
-is_on =True
-
-while is_on:
-   choice =input("what would you like? (espresso/latte/cappuccino): ")
-   if choice == "off":
-      is_on = False
-# to get the current resources values left in the machine
-   elif choice == "report":
-        print(f"Water: {resources['water']}m")
-        print(f"Milk: {resources['milk']}ml")      
-        print(f"Coffee:{resources['coffee']}g")
-        print(f"Money: ${profit}")
-# Check resources sufficient?
-   else:
-       drink= MENU[choice]
-       print(drink)
-       if is_resource_sufficient(drink["ingredients"]):
-          payment= process_coins()
-          is_transaction_successfull(payment, drink["cost"])
+#         global profit
+#         profit += drink_cost
+#         return True
+#     else:
+#         print("Sorry that's not enough money. Money refunded.")
+#         return False
 
 
-""" NOTE : Object Oriented Programming(OOP) OR PROCEDURAL PROGRAMMING"""
+# is_on =True
+
+# while is_on:
+#    choice =input("what would you like? (espresso/latte/cappuccino): ")
+#    if choice == "off":
+#       is_on = False
+# # to get the current resources values left in the machine
+#    elif choice == "report":
+#         print(f"Water: {resources['water']}m")
+#         print(f"Milk: {resources['milk']}ml")      
+#         print(f"Coffee:{resources['coffee']}g")
+#         print(f"Money: ${profit}")
+# # Check resources sufficient?
+#    else:
+#        drink= MENU[choice]
+#        print(drink)
+#        if is_resource_sufficient(drink["ingredients"]):
+#           payment= process_coins()
+#           is_transaction_successfull(payment, drink["cost"])
+
+
+""" NOTE : Object Oriented Programming(OOP)  """
+"""PROCEDURAL PROGRAMMING: when our code is managing functionality of diffrent functions in the code and it is really hard to track and remember what function is dependending or doing to other functions in our code 
+and this is called precedural programming older languages versions used to deal with this dilemma
+"""
 # We set up procedural or function that do particular things and one procedural leads to another procedural 
 
+# to maintain a simple relationship between the functions objects oriented programmings is introduced 
 """ How to Use OOP """
 # the object has are attributes and are model by variables
 # the object does are methods: are model by functions
 
-# example: waiter in a resturent
-# attributes: has : 
-# is_holding_plate = True
-# tables_responsible =[4,5,6]
-# methods: does:
-# def take_order(table, order):
-# take order to chef
-# deef take_payment(amount):
-# add money to restaurant 
+""" 
+example: waiter in a resturant
+
+waiter : object 
+
+in waiter object to import things to make up the object attributes and methods
+
+attributes basically a variables which is associated with the model object 
+
+attributes: has : 
+
+is_holding_plate = True
+tables_responsible =[4,5,6]
+
+methods are just functions but we call it as methods because these functions does a particlar model object can do
+we need to waiter object to take the order and take payment it has multiple functionalities
+
+methods: does:
+           
+def take_order(table, order):
+  #take order to chef
+def take_payment(amount):
+  #add money to restaurant 
+"""
 
 """NOTE : essentially a object is combination of peace of data and some fucntionality all to gether in the same thing
           also we have multiple objects of same types the object waiter is called CLASS and the same types of that class
@@ -2317,13 +2335,13 @@ while is_on:
 
 # timmy = Turtle()
 # print(timmy)
-# # the is the class where the turtle is going to show up
-# # using my_screen object we can tab into screen porperties
+# # # the is the class where the turtle is going to show up
+# # # using my_screen object we can tap into screen porperties
 # my_screen = Screen()
 # print(my_screen.canvheight)
 
-"""Step3: METHOD : a function that tied to an objec so it is called method.
-                   in addtion to the object has it also holds data"""
+"""Step3: METHOD : a function that tied to an object so it is called method.
+in addtion to the object has it also holds data"""
 
 # timmy.shape("turtle")
 # timmy.color("red","green")
@@ -2335,8 +2353,30 @@ while is_on:
 
 """ NOTE : How to add Python Packages and use PyPi
            PyPi: https://pypi.org/
-           look for preety table package library
+           look for pretty table package library
 """
+
+from prettytable import PrettyTable
+
+table = PrettyTable() 
+
+table.add_column("City name",
+[ "Adelaide", "Brisbane", "Darwin", "Sydney", "Melbourne", "Perth"])
+table.add_column("Population", [1158259, 185794, 120900, 4336374, 3806092, 1554769])
+print (table)
+
+# if you want to change the apparance (object attribute) of the table like table style, border, header
+table.border = False
+print(table)
+table.border = True
+table.align = "l"
+print(table)
+
+
+""" Coffee Machine Project on OOP's Concept Frameworks"""
+
+
+
 
 """ executing the below code using numpy package in vs code and create a virtual envinorment and using runner extension to execute the numpy code """
 
@@ -2368,4 +2408,5 @@ while is_on:
 # y = np.sin(x)
 
 # plt.plot(x,y)
-# plt.show() 
+# plt.show()          
+
