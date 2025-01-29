@@ -2356,21 +2356,21 @@ in addtion to the object has it also holds data"""
            look for pretty table package library
 """
 
-from prettytable import PrettyTable
+# from prettytable import PrettyTable
 
-table = PrettyTable() 
+# table = PrettyTable() 
 
-table.add_column("City name",
-[ "Adelaide", "Brisbane", "Darwin", "Sydney", "Melbourne", "Perth"])
-table.add_column("Population", [1158259, 185794, 120900, 4336374, 3806092, 1554769])
-print (table)
+# table.add_column("City name",
+# [ "Adelaide", "Brisbane", "Darwin", "Sydney", "Melbourne", "Perth"])
+# table.add_column("Population", [1158259, 185794, 120900, 4336374, 3806092, 1554769])
+# print (table)
 
 # if you want to change the apparance (object attribute) of the table like table style, border, header
-table.border = False
-print(table)
-table.border = True
-table.align = "l"
-print(table)
+# table.border = False
+# print(table)
+# table.border = True
+# table.align = "l"
+# print(table)
 
 
 """ Coffee Machine Project on OOP's Concept Frameworks"""
